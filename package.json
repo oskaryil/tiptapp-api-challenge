@@ -4,7 +4,9 @@
   "description": "Tiptapp api coding challenge",
   "main": "index.js",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "koa": "^2.5.1",
+    "koa-router": "^7.4.0",
     "mongoose": "^5.1.8"
   },
   "devDependencies": {},
