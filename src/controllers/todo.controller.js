@@ -1,5 +1,6 @@
 const Todo = require('../models/todo.model');
 const Event = require('../models/event.model');
+const errorHandler = require('../helpers/errorHandler');
 
 const eventTypes = {
   CREATE_TODO: 'create_todo',
@@ -33,8 +34,7 @@ const createTodo = async ctx => {
     ctx.status = 201;
     ctx.body = { message: 'Todo created', todo: newTodo };
   } catch (err) {
-    ctx.status = 400;
-    ctx.body = { message: 'An error occured', error: err.message };
+    errorHandler(ctx, err);
   }
 };
 
@@ -63,8 +63,7 @@ const deleteTodo = async ctx => {
       throw new Error('A todo with that id could not be found');
     }
   } catch (err) {
-    ctx.status = 400;
-    ctx.body = { message: 'An error occured', error: err.message };
+    errorHandler(ctx, err);
   }
 };
 
@@ -121,8 +120,7 @@ const updateTodo = async ctx => {
       throw new Error('A todo with that id could not be found');
     }
   } catch (err) {
-    ctx.status = 400;
-    ctx.body = { message: 'An error occured', error: err.message };
+    errorHandler(ctx, err);
   }
 };
 
@@ -141,8 +139,7 @@ const fetchTodos = async ctx => {
     ctx.status = 200;
     ctx.body = todos;
   } catch (err) {
-    ctx.status = 400;
-    ctx.body = { message: 'An error occured', error: err.message };
+    errorHandler(ctx, err);
   }
 };
 

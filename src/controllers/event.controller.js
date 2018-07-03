@@ -1,4 +1,5 @@
 const Event = require('../models/event.model');
+const errorHandler = require('../helpers/errorHandler');
 
 /**
  * @function fetchEvents
@@ -15,11 +16,7 @@ const fetchEvents = async ctx => {
     ctx.status = 200;
     ctx.body = events;
   } catch (err) {
-    ctx.status = 400;
-    ctx.body = {
-      message: 'An error occured while fetching the events',
-      error: err.message
-    };
+    errorHandler(ctx, err);
   }
 };
 
@@ -39,11 +36,7 @@ const fetchBasedOnEventName = async ctx => {
     ctx.status = 200;
     ctx.body = { message: `Fetched events with the name ${eventName}`, events };
   } catch (err) {
-    ctx.status = 400;
-    ctx.body = {
-      message: 'An error occured while fetching the events',
-      error: err.message
-    };
+    errorHandler(ctx, err);
   }
 };
 
