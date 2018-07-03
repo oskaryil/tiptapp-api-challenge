@@ -6,6 +6,7 @@ const router = new Router();
 
 router
   .post('/', TodoController.createTodo)
-  .delete('/:id', TodoController.deleteTodo);
+  .delete('/:id', TodoController.deleteTodo)
+  .patch('/:id', TodoController.updateTodo);
 
 module.exports = router;
