@@ -33,4 +33,29 @@ const createTodo = async ctx => {
   }
 };
 
-module.exports = { createTodo };
+/**
+ * @function deleteTodo
+ *
+ * @description
+ * DOING: Should delete a todo by its _id received in request params
+ *
+ * @param  {Object}  ctx
+ * @returns
+ */
+const deleteTodo = async ctx => {
+  try {
+    const { id } = ctx.params;
+    const deletedTodo = await Todo.findOneAndDelete({ _id: id });
+    if(deletedTodo) {
+      ctx.status = 200;
+      ctx.body = { message: `Todo with id ${id} has been deleted`, deletedTodo };
+    } else {
+      throw new Error('A todo with that id could not be found');
+    }
+  } catch (err) {
+    ctx.status = 400;
+    ctx.body = { message: 'An error occured', error: err.message };
+  }
+};
+
+module.exports = { createTodo, deleteTodo };
