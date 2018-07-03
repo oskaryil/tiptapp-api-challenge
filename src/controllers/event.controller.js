@@ -1,5 +1,14 @@
 const Event = require('../models/event.model');
 
+/**
+ * @function fetchEvents
+ *
+ * @description
+ * DOING: Should fetch all events
+ *
+ * @param  {Object}  ctx
+ * @returns
+ */
 const fetchEvents = async ctx => {
   try {
     const events = await Event.find();
@@ -14,6 +23,15 @@ const fetchEvents = async ctx => {
   }
 };
 
+/**
+ * @function fetchBasedOnEventName
+ *
+ * @description
+ * DOING: Should fetch events based on the name requested
+ *
+ * @param  {Object}  ctx
+ * @returns
+ */
 const fetchBasedOnEventName = async ctx => {
   try {
     const eventName = ctx.params.name;
