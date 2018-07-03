@@ -126,4 +126,24 @@ const updateTodo = async ctx => {
   }
 };
 
-module.exports = { createTodo, deleteTodo, updateTodo };
+/**
+ * @function fetchTodos
+ *
+ * @description
+ * DOING: Should fetch all todos
+ *
+ * @param  {Object}  ctx
+ * @returns
+ */
+const fetchTodos = async ctx => {
+  try {
+    const todos = await Todo.find();
+    ctx.status = 200;
+    ctx.body = todos;
+  } catch (err) {
+    ctx.status = 400;
+    ctx.body = { message: 'An error occured', error: err.message };
+  }
+};
+
+module.exports = { createTodo, deleteTodo, updateTodo, fetchTodos };
