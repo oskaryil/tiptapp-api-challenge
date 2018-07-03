@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/oskaryil/tiptapp-api-challenge/issues"
   },
-  "homepage": "https://github.com/oskaryil/tiptapp-api-challenge#readme"
+  "homepage": "https://github.com/oskaryil/tiptapp-api-challenge#readme",
+  "engines": {
+    "node": "8.10.0"
+  }
 }
