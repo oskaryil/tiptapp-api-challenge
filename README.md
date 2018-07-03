@@ -2,6 +2,8 @@
 
 Tiptapp api coding challenge
 
+Production url: `https://tiptapp-challenge.herokuapp.com/`
+
 ## Setup
 
 ### Prerequisities
