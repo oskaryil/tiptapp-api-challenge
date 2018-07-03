@@ -2,7 +2,8 @@ const Todo = require('../models/todo.model');
 const Event = require('../models/event.model');
 
 const eventTypes = {
-  CREATE_TODO: 'create_todo'
+  CREATE_TODO: 'create_todo',
+  DELETE_TODO: 'delete_todo'
 };
 
 /**
@@ -47,6 +48,8 @@ const deleteTodo = async ctx => {
     const { id } = ctx.params;
     const deletedTodo = await Todo.findOneAndDelete({ _id: id });
     if(deletedTodo) {
+      const newEvent = new Event({ name: eventTypes.DELETE_TODO });
+      await newEvent.save();
       ctx.status = 200;
       ctx.body = { message: `Todo with id ${id} has been deleted`, deletedTodo };
     } else {
