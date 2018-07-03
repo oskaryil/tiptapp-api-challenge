@@ -4,6 +4,10 @@ const devConfig = {
   MONGO_URL: process.env.MONGO_URL_DEV
 };
 
+const testConfig = {
+  MONGO_URL: process.env.MONGO_URL_TEST
+};
+
 const prodConfig = {
   MONGO_URL: process.env.MONGO_URL_PROD
 };
@@ -17,6 +21,8 @@ function envConfig(env) {
   switch (env) {
     case 'development':
       return Object.assign(defaultConfig, devConfig);
+    case 'test':
+      return Object.assign(defaultConfig, testConfig);
     case 'production':
       return Object.assign(defaultConfig, prodConfig);
     default:
