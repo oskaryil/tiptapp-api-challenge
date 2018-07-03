@@ -14,8 +14,11 @@ Make a copy of the `.env.example` file and rename it to `.env`. Fill this file w
 Here's an example:
 
 ```
-PORT=4000
-MONGO_URL_DEV=mongodb://localhost/tiptapp-todo-api
+APP_NAME=Todo API
+PORT=3000
+MONGO_URL_DEV=mongodb://localhost/tiptapp-todo-api-dev
+MONGO_URL_PROD=mongodb://localhost/tiptapp-todo-api-prod
+MONGO_URL_TEST=mongodb://localhost/tiptapp-todo-api-test
 ```
 
 ### Install depencendies
